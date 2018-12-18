@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: dev
+
+#spring:
+#  application:
+#    name: iot-808-orderid-service
+#  cloud:
+#    config:
+#      name: ${spring.application.name}
+#      profile: dev
+#      discovery:
+#        enabled: true
+#        service-id: xtool-config-server
+        
+#    consul:
+#      host: 19.87.22.12
+#      port: 8500
+#      discovery:
+#        register: true
+#        hostname: 19.87.22.12
+#        serviceName: ${spring.application.name}
+#        healthCheckPath: /actuator/health
+#        healthCheckInterval: 15s
+#        tags: urlprefix-/${spring.application.name}
+#        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+#server:
+#  port: 8722
+
+management:
+  cloudfoundry:
+    enabled: true
+  endpoint:
+    refresh:
+      enabled: true
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        - refresh
+#        - restart
+#        - health
+#        - info
+#        - mappings
+#        - env

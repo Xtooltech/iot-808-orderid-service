@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: iot-808-orderid-service
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://19.87.22.12:8727
+    service:
+      name: ${spring.application.name}
+  cloud:
+    config:
+      name: ${spring.application.name}
+      profile: dev
+      enabled: true
+      discovery:
+        enabled: true
+        service-id: xtool-config-server
+#      uri: http://19.87.22.12:8720
+        
+    consul:
+      host: 19.87.22.12
+      port: 8500
+      discovery:
+        register: true
+        hostname: 19.87.22.12
+        serviceName: ${spring.application.name}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+        tags: urlprefix-/${spring.application.name}
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+server:
+  port: 8722
