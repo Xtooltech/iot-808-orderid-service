@@ -1,6 +1,9 @@
 spring:
   application:
     name: iot-808-orderid-service
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   main:
     allow-bean-definition-overriding: true
   zipkin:
